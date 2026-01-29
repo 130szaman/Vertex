@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vertex</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Chart.js (optional for graphs) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Netlify Identity widget (used later for login) -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Vertex</h1>
+    <div class="top-controls">
+      <input id="search" type="search" placeholder="Search topics..." aria-label="Search topics">
+      <div id="authButtons">
+        <button id="loginBtn">Log in / Sign up</button>
+        <button id="logoutBtn" hidden>Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="card-grid" id="subjects" aria-live="polite">
+      <article class="topic-card" data-subject="biology">
+        <h2>Biology</h2>
+        <p>Cells, genetics, ecology</p>
+        <button class="open-lesson" data-lesson="cell-structure">Open a sample lesson</button>
+      </article>
+
+      <article class="topic-card" data-subject="chemistry">
+        <h2>Chemistry</h2>
+        <p>Atoms, reactions, periodic trends</p>
+        <button class="open-lesson" data-lesson="periodic-trends">Open a sample lesson</button>
+      </article>
+
+      <article class="topic-card" data-subject="physics">
+        <h2>Physics</h2>
+        <p>Motion, forces, energy</p>
+        <button class="open-lesson" data-lesson="projectile-motion">Open a sample lesson</button>
+      </article>
+
+      <article class="topic-card" data-subject="envsci">
+        <h2>Environmental Science</h2>
+        <p>Climate, ecosystems, sustainability</p>
+        <button class="open-lesson" data-lesson="ecosystems">Open a sample lesson</button>
+      </article>
+    </section>
+
+    <!-- Lesson area (re-used for all lessons) -->
+    <section id="lesson" class="lesson" hidden>
+      <button id="closeLesson" class="closeBtn">Close</button>
+      <h2 id="lessonTitle">Lesson title</h2>
+
+      <div id="lessonContent">
+        <h3>Step-by-step explanation</h3>
+        <ol id="stepsList">
+          <!-- Filled by JS when opening a lesson -->
+        </ol>
+
+        <div id="practice">
+          <h3>Practice (interactive)</h3>
+          <p id="questionText"></p>
+          <div id="choices"></div>
+          <div class="controls">
+            <button id="showHint" class="smallBtn">Show hint</button>
+            <button id="showAnswer" class="smallBtn">Show answer</button>
+          </div>
+          <div id="hint" class="hint" hidden></div>
+          <div id="answer" class="answer" hidden></div>
+        </div>
+
+        <div id="chartWrap">
+          <h3>Example graph</h3>
+          <canvas id="demoChart" aria-label="Sample chart"></canvas>
+        </div>
+
+        <div id="resources">
+          <h3>Research links</h3>
+          <ul id="linksList"></ul>
+        </div>
+
+        <div class="ap-only notice" hidden>
+          <h3>AP Section (gated)</h3>
+          <p>This AP content is only visible to logged-in users who have been granted AP access.</p>
+          <ul>
+            <li><a href="#">AP study guide (example)</a></li>
+            <li><a href="#">AP lab resource (example)</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made by Vertex — a student-friendly science hub.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
